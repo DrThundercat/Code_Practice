@@ -7,20 +7,18 @@ public class Kata4 {
     public static String jumbleWord(String s, int shift)
     {
        StringBuilder myWord = new StringBuilder(s);
-       int shiftAmount = shift;
 
        for(int i =0; i < s.length(); i++)
        {
         if(Character.isLetter(myWord.charAt(i))) {
             if(myWord.charAt(i) >= 97)
             {
-                myWord.replace(i,i+1,Character.toString((char)((myWord.charAt(i) - 'a' + shiftAmount) %26 + 'a')));
+                myWord.replace(i,i+1,Character.toString((char)(((myWord.charAt(i) - (int)'a') + shift + i) %26 + (int)'a')));
             }
             else{
-                myWord.replace(i,i+1,Character.toString((char)((myWord.charAt(i) - 'A' + shiftAmount) %26 + 'A')));
+                myWord.replace(i,i+1,Character.toString((char)(((myWord.charAt(i) -(int)'A') + shift + i) %26 + (int)'A')));
             }
         }
-         shiftAmount += shift;
        }
        return myWord.toString();
     }
@@ -31,9 +29,9 @@ public class Kata4 {
             StringBuilder myWord = new StringBuilder(word);
             int divValue = myWord.length()/5;
             int count = 0;
-            int temp = divValue +1;
+            int temp = divValue;
 
-            if(divValue %2 == 0)
+            if((myWord.length() % 5) == 0)
             {
                  while(count < myWord.length())
                  {
@@ -44,6 +42,7 @@ public class Kata4 {
             }
             else
             {
+                temp = divValue +1;
                 divValue = divValue +1;
                 while(count < myWord.length())
                 {
@@ -77,21 +76,19 @@ public class Kata4 {
     public static String unjumbleWord(String s, int shift)
     {
         StringBuilder myWord = new StringBuilder(s);
-        int shiftAmount = shift;
 
         for(int i =0; i < s.length(); i++)
         {
             if(Character.isLetter(myWord.charAt(i))) {
                 if(myWord.charAt(i) >=97)
                 {
-                    myWord.replace(i, i + 1, Character.toString((char)((myWord.charAt(i) - 'a' - shiftAmount + 26 * myWord.length()) % 26 + 'a')));
+                    myWord.replace(i, i + 1, Character.toString((char)((((myWord.charAt(i) - 'a') - shift -i +(1+i/26)*26) %26 + 'a'))));
                 }
                 else
                 {
-                    myWord.replace(i, i + 1, Character.toString((char)((myWord.charAt(i) - 'A' - shiftAmount + 26 * myWord.length()) % 26 + 'A')));
+                    myWord.replace(i, i + 1, Character.toString((char)((((myWord.charAt(i) - 'A') - shift -i +(1+i/26)*26) %26 + 'A'))));
                 }
             }
-            shiftAmount += shift;
         }
 
         return myWord.toString();
