@@ -46,11 +46,9 @@ class Kata4Test {
     @Test
     void newWordTest_Split()
     {
+        String x = "wdsVuw sh qu dii hevGs uzbicaudhoxuMWewxfdu O";
         List<String> answer = Arrays.asList("wdsVuw sh", " qu dii h", "evGs uzbi", "caudhoxuM", "Wewxfdu O");
-        List<String> x = Arrays.asList("weuYyb zp", "af qwx ywo", "An rxaidcx", "hmuecVGpik", "tsk G");
 
-            assertEquals(answer,x);
-
-            //and then
+        assertEquals(answer, Kata4.WordBreakDown(x));
     }
 }
