@@ -49,5 +49,6 @@ class Kata4Test {
         List<String> answer = Arrays.asList("wdsVuw sh", " qu dii h", "evGs uzbi", "caudhoxuM", "Wewxfdu O");
         List<String> x = Arrays.asList("weuYyb zp", "af qwx ywo", "An rxaidcx", "hmuecVGpik", "tsk G");
 
+            assertEquals(answer,x);
     }
 }
