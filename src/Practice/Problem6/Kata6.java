@@ -75,7 +75,15 @@ public class Kata6 {
 
     public static double[] getVarience(double [] numberList, double avg)
     {
-        double [] answer = new double[12];
+
+        double [] answer;
+        if(avg == -1.0)
+        {
+            answer = new double[]{-1.0};
+            return answer;
+        }
+
+       answer = new double[12];
         for(int i = 0; i < numberList.length; i++ )
         {
             answer[i] = Math.pow((numberList[i] - avg),2);
